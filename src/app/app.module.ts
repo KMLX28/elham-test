@@ -10,7 +10,7 @@ import {StarsPipe} from './pipes/stars.pipe';
 import {FormsModule} from "@angular/forms";
 import {AkitaNgDevtools} from '@datorama/akita-ngdevtools';
 import {environment} from '../environments/environment';
-import { HeroComponent } from './hero/hero.component';
+import { HeroComponent } from './pages/hero/hero.component';
 import { HeroesComponent } from './pages/heroes/heroes.component';
 
 @NgModule({

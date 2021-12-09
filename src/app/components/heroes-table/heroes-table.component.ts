@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Hero, SortTypes} from "../../interfaces/Hero";
+import {Hero} from "../../interfaces/Hero";
 import {HeroesQuery} from "../../akita/heroes.query";
-import {HeroesStore, NAME} from "../../akita/heroes.store";
+import {HeroesStore} from "../../akita/heroes.store";
+import {HeroesService} from "../../services/heroes.service";
 
 @Component({
   selector: 'app-heroes-table',
@@ -11,7 +12,7 @@ import {HeroesStore, NAME} from "../../akita/heroes.store";
 export class HeroesTableComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor(private query: HeroesQuery, private store: HeroesStore) {
+  constructor(private query: HeroesQuery, private store: HeroesStore, private heroesService: HeroesService) {
   }
 
   ngOnInit(): void {
@@ -19,24 +20,9 @@ export class HeroesTableComponent implements OnInit {
     this.query.searchText.subscribe(
       text => text.trim() === '' ?
               (this.heroes = this.store.getValue().heroes) :
-              (this.heroes = this.filterHeroes(text))
+              (this.heroes = this.heroesService.filterHeroes(text))
     );
 
-    this.query.sort.subscribe(sort => (this.heroes = this.sortHeroes(sort)));
-  }
-  // the logic below can be moved to a service...
-  filterHeroes(text: string) {
-    return this.heroes.filter(hero => {
-      text = text.toLowerCase();
-      return hero.name.toLowerCase().includes(text) || hero.powers.toLowerCase().includes(text);
-    });
-  }
-
-  sortHeroes(sort: SortTypes) {
-    return this.heroes.sort((hero1, hero2) =>
-      sort === NAME ?
-      hero1.name.localeCompare(hero2.name) :
-      hero1.powers.localeCompare(hero2.powers)
-    );
+    this.query.sort.subscribe(sort => (this.heroes = this.heroesService.sortHeroes(this.heroes, sort)));
   }
 }

@@ -1,7 +1,6 @@
 import {Query} from '@datorama/akita';
 import {HeroesState, HeroesStore, NAME} from "./heroes.store";
 import {Injectable} from "@angular/core";
-import {SortQuery} from "./sort.query";
 
 @Injectable({
   providedIn: 'root'

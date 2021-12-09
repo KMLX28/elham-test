@@ -13,7 +13,7 @@ export class SearchInputComponent {
 
   constructor() {
     this.textChanged.pipe(
-      debounceTime(500),
+      debounceTime(200),
       distinctUntilChanged()
     ).subscribe(text => this.searchTextChange.emit(text));
   }

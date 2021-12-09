@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HeroesQuery} from "../akita/heroes.query";
-import {Hero} from "../interfaces/Hero";
+import {HeroesQuery} from "../../akita/heroes.query";
+import {Hero} from "../../interfaces/Hero";
 import {ActivatedRoute} from "@angular/router";
 import {combineLatest} from "rxjs";
 
