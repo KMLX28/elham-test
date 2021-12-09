@@ -98,9 +98,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "alham-test"
+  "defaultProject": "alham-test",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }

@@ -1,0 +1,30 @@
+<section class="container mx-auto p-6 mt-12 font-mono">
+  <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+    <div class="w-full">
+      <table class="w-full">
+        <thead>
+          <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 border-b border-gray-600">
+            <th class="px-4 py-3">Hero Name</th>
+            <th class="px-4 py-3">Powers</th>
+            <th class="px-4 py-3">Rate</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr *ngFor="let hero of heroes" class="text-gray-700">
+            <td class="px-4 py-3 border">
+              <div class="flex items-center text-sm">
+                <p class="text-xs text-gray-600">
+                  <a style="text-decoration: underline; color: blue;"  [routerLink]="['/hero/', hero.name]">
+                    {{hero.name}}
+                  </a>
+                </p>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-ms font-semibold border">{{hero.powers}}</td>
+            <td class="px-4 py-3 text-sm border" [innerHTML]="hero.rate | stars"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

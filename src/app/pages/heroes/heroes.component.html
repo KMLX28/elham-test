@@ -1,0 +1,8 @@
+<div class="flex items-center justify-around">
+  <div class="items-center justify-center">
+    <app-search-input (searchTextChange)="setSearchText($event)"></app-search-input>
+  </div>
+  <app-sort-toggle (toggle)="setSort()"></app-sort-toggle>
+</div>
+
+<app-heroes-table></app-heroes-table>

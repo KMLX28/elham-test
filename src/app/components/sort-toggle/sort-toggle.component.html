@@ -1,0 +1,18 @@
+<div class="flex items-center justify-center w-full">
+  <label for="toogleA" class="flex items-center cursor-pointer">
+    <div class="mx-3 text-gray-700 font-medium">
+      Sort By Power
+    </div>
+    <div class="relative">
+      <input id="toogleA" type="checkbox" (input)="onToggle()" class="sr-only">
+      <div class="w-10 h-4 bg-gray-200 border rounded-full shadow-inner"></div>
+      <div [style.transform]="isSortedByName ? 'translateX(100%)' : 'translateX(0)'"
+           [class.bg-blue-400]="isSortedByName"
+           [class.bg-red-500]="isSortedByPower"
+           class="dot absolute w-6 h-6 rounded-full shadow -left-1 -top-1 transition"></div>
+    </div>
+    <div class="mx-3 text-gray-700 font-medium">
+      Sort By Name
+    </div>
+  </label>
+</div>
